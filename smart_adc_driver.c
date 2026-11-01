@@ -7,7 +7,7 @@ ADCR=0x00200400;
 }
 
 #define done ((ADDR>>31)&1)
-unsigned char smart_adc_read(unsigned int ch_num)
+unsigned int smart_adc_read(unsigned int ch_num)
 {
 unsigned int result=0;
 ADCR |= (1<<ch_num);		  //select which channel

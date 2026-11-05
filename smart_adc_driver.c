@@ -2,7 +2,7 @@
 
 void smart_adc_init(void)
 {
-PINSEL1 =0x15400000;
+PINSEL1 |= 0x15400000;
 ADCR=0x00200400;
 }
 
@@ -25,7 +25,7 @@ float temp_sensor(unsigned int ch_num)
 unsigned int adc_temp_value;
 float temp,t_out;
 adc_temp_value=smart_adc_read(ch_num);
-temp=(adc_temp_value*3.3)/1023;
+temp=adc_temp_value*(3.3/1023);     //*100;
 t_out=temp/0.010;
 return t_out;
 }
